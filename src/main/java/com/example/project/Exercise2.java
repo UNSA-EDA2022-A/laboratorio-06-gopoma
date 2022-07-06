@@ -8,7 +8,7 @@ public class Exercise2 {
         BST<Integer> tree1 = new BST<Integer>();
         BST<Integer> tree2 = new BST<Integer>();
 
-        Integer array [] = {1, 2,3, 4, 5};
+        Integer array [] = {1, 2, 3, 4, 5};
 
         for(Integer value : array){
             tree1.insert(value);
@@ -21,7 +21,17 @@ public class Exercise2 {
 
 
     public <T extends Comparable<T>> boolean bstIguales(BST<T> a1, BST<T> a2){
-
-        return false;
+        return bstIguales(a1.root, a2.root);
+    }
+    public <T extends Comparable<T>> boolean bstIguales(Node<T> n1, Node<T> n2) {
+        if((n1 != null && n2 == null) || (n1 == null && n2 != null)) {
+            return false;
+        } else {
+            if(n1 == null && n2 == null) {
+                return true;
+            } else {
+                return n1.data.compareTo(n2.data) == 0 && bstIguales(n1.left, n2.left) && bstIguales(n1.right, n2.right);
+            }
+        }   
     }
 }

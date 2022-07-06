@@ -16,7 +16,6 @@ public class Exercise1 {
         }
 
         System.out.print(obj.bstSimilares(tree1, tree2));
-        
     }
 
 
@@ -27,7 +26,11 @@ public class Exercise1 {
         if((n1 != null && n2 == null) || (n1 == null && n2 != null)) {
             return false;
         } else {
-            return (n1 == null && n2 == null)? true : bstSimilares(n1.left, n2.left) && bstSimilares(n1.right, n2.right);
+            if(n1 == null && n2 == null) {
+                return true;
+            } else {
+                return bstSimilares(n1.left, n2.left) && bstSimilares(n1.right, n2.right);
+            }
         }
     }
 }
