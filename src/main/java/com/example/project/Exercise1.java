@@ -21,10 +21,10 @@ public class Exercise1 {
 
     public <T extends Comparable<T>> boolean bstSimilares(BST<T> a1, BST<T> a2){
         // First of all, we have to take care of strange cases like sending an Empty (no root [No nodes in it]) BST
-        if(a1.isEmpty() && a2.isEmpty()) { // If both BSTs are Empty, then they are similar
+        if(a1 == null && a2 == null) { // If both BSTs are Empty, then they are similar
             return true;
         // Once we filter that both of then are not Empty, we only have that only one of then are Empty or none or them
-        } else if(a1.isEmpty() || a2.isEmpty()) { // If any of then are Empty and taking into consideration the case above, then they're not similar
+        } else if(a1 == null || a2 == null) { // If any of then are Empty and taking into consideration the case above, then they're not similar
             return false;
         }
         return bstSimilares(a1.root, a2.root); // None of the BSTs are Empty

@@ -21,6 +21,12 @@ public class Exercise2 {
 
 
     public <T extends Comparable<T>> boolean bstIguales(BST<T> a1, BST<T> a2){
+        // Taking care about Strange Cases like sending null values
+        if(a1 == null && a2 == null) {
+            return true;
+        } else if(a1 == null || a2 == null) { // Condition by Filtering
+            return false;
+        }
         return bstIguales(a1.root, a2.root);
     }
     public <T extends Comparable<T>> boolean bstIguales(Node<T> n1, Node<T> n2) {
